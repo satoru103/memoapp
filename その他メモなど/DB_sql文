@@ -1,0 +1,44 @@
+■DB起動
+mysql.server start
+
+■DBログイン
+mysql -u user01 -p
+※ -u ユーザ名、-p パスワード（ここでは空にしている）
+
+■DB作成
+CREATE DATABASE Memo;
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Memo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| scheduler          |
+| test               |
++--------------------+
+
+■DB使用
+use Memo;
+
+■テーブル作成
+CREATE TABLE posts(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,title VARCHAR(255),content TEXT);
+
+■テーブル確認
+show tables;
+
+■カラムにデータ追加
+INSERT INTO posts(title, content) VALUES("サンプル","サンプル");
+
+■カラムのデータ変更
+UPDATE posts SET title="変更", content="変更";
++----+--------+---------+
+| id | title  | content |
++----+--------+---------+
+|  1 | 変更   | 変更    |
++----+--------+---------+
+
+
+■カラムデータ確認
+select * from posts
