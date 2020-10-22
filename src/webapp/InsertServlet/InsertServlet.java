@@ -134,18 +134,40 @@ public class InsertServlet extends HttpServlet {
 				")\r\n";
 
 			System.out.println(sql);
+
+			ps =conn.prepareStatement(sql);
+
+			ps.setString(1,title);
+			ps.setString(2,content);
+
+			ps.executeUpdate();
+
+			conn.commit();
 		}catch(SQLException e){
 			e.printStackTrace();
+			try {
+				conn.rollback();
+			}catch(SQLException e1){
+				e1.printStackTrace();
+			}
 		}finally {
 			try {
-
-			}catch{
-
+				if(conn != null) {
+					conn.close();
+				}
+				if(rs != null) {
+					rs.close();
+				}
+				if(ps != null) {
+					ps.close();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
 			}
+
 		}
-
-
-
+		request.setAttribute("message", "メモの追加が完了しました");
+		response.sendRedirect("List");
 
 	}
 

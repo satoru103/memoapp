@@ -24,6 +24,6 @@
 	</c:forEach>
 	</tr>
 </table>
-<a href="/new.jsp" class="btn btn-new">追加</a>
+<a href="Insert.jsp" class="btn btn-new">追加</a>
 </body>
 </html>

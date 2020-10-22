@@ -14,7 +14,7 @@
 	<%= message %>
 
 
-	<form action="edit" method='get'>
+	<form action="edit" method='post'>
 		<input type="hidden" name="id" value='<%=request.getAttribute("id")%>'>;
 
 	    <label for="title">タイトル</label>
