@@ -156,7 +156,7 @@ public class InsertServlet extends HttpServlet {
 					conn.close();
 				}
 				if(rs != null) {
-					rs.close();
+					rs.close();	
 				}
 				if(ps != null) {
 					ps.close();
