@@ -50,7 +50,7 @@ public class DeleteServlet extends HttpServlet {
 
 			ps =conn.prepareStatement(sql);
 
-			ps.setInt(1,"id");
+			ps.setInt(1,Id);
 
 			ps.executeUpdate(sql);
 
@@ -60,8 +60,24 @@ public class DeleteServlet extends HttpServlet {
 
 		}catch(SQLException e){
 			e.printStackTrace();
+			try {
+				conn.rollback();
+			}catch(SQLException el) {
+				el.printStackTrace();
+			}
+		}finally {
+			try {
+				if(ps !=null) {
+					ps.close();
+				}
+				if(conn !=null) {
+					conn.close();
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
+		response.sendRedirect("List");
 	}
-
 }

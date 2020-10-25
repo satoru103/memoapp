@@ -5,25 +5,27 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>メモ一覧機能</title>
+			<%@include file="/WEB-INF/css/main.css" %>
 			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		</head>
 <body>
-
+<div class="Memo_main">
 <h1>メモ一覧</h1>
-<table>
+<div class="Memo_main-display">
+  <table>
 	<tr>
+		<c:forEach var="Mem" items="${memoinfo}">
+			<label class="title">タイトル</label>
+			${Mem.title}
 
-	<c:forEach var="Mem" items="${memoinfo}">
+			<label class="content">本文</label>
+			${Mem.content}
 
-		<label>タイトル</label>
-		${Mem.title}
-
-		<label>本文</label>
-		${Mem.content}
-
-	</c:forEach>
+		</c:forEach>
 	</tr>
-</table>
+  </table>
+ </div>
+</div>
 <a href="Insert.jsp" class="btn btn-new">追加</a>
 </body>
 </html>

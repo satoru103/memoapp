@@ -97,7 +97,7 @@ public class ListServlet extends HttpServlet {
 
 
          // view
-		 String view ="views/List.jsp";
+		 String view ="WEB-INF/views/List.jsp";
 		 RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 		 dispatcher.forward(request, response);
 	}
